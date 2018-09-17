@@ -15,7 +15,7 @@ class Board
     /**
      *  使用者名稱
      *
-     *  @Column(name="name", type="string", length=40, nullable=FALSE)
+     *  @Column(name="name", type="string", length=40)
      */
     protected $name;
     /**
