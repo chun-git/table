@@ -1,15 +1,14 @@
 <?php
-//include 'messageFunction.php';
-require __DIR__.'/../config/bootstrap.php';
+require __DIR__.'/../config/Bootstrap.php';
 
-if ( isset( $_GET['edit_id']) ){
+if (isset($_GET['edit_id'])) {
     $editId = $_GET['edit_id'];
     $board = $em->getRepository('Board')->find($editId);
 }
 ?>
 
 <h2>編輯留言板</h2>
-<form method="post" action="messageFresh.php">
+<form method="post" action="MessageFresh.php">
     <input name="id" type="hidden" value="<?= $board->getId();?>">
     姓名: <?= $board->getName();?><br>
     留言內容:<br>

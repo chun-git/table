@@ -1,5 +1,5 @@
 <?php
-// entities/Board.php entity(repositoryClass="BoardRepository")
+// entities/Board.php
 /**
  *@Entity
  *@Table(name="board")
@@ -12,24 +12,28 @@ class Board
      *  @GeneratedValue
      */
     protected $id;
+
     /**
      *  使用者名稱
      *
      *  @Column(name="name", type="string", length=40)
      */
     protected $name;
+
     /**
      *  留言內容
      *
      *  @Column(name="message", type="text")
      */
     protected $message;
+
     /**
      *  更新時間
      *
      *  @Column(name="update_time", type="datetime")
      */
     protected $updateTime;
+
     /**
      * 取得 id
      *
@@ -39,6 +43,7 @@ class Board
     {
         return $this->id;
     }
+
     /**
      * 設定 ID
      *
@@ -48,6 +53,7 @@ class Board
     {
         $this->id = $id;
     }
+
     /**
      * 取得使用者名稱
      *
@@ -57,6 +63,7 @@ class Board
     {
         return $this->name;
     }
+
     /**
      * 設定使用者名稱
      *
@@ -66,6 +73,7 @@ class Board
     {
         $this->name = $name;
     }
+
     /**
      * 取得留言內容
      *
@@ -75,6 +83,7 @@ class Board
     {
         return $this->message;
     }
+
     /**
      * 設定留言內容
      *
@@ -84,6 +93,7 @@ class Board
     {
         $this->message = $message;
     }
+
     /**
      * 取得留言更新時間
      *
@@ -96,11 +106,26 @@ class Board
     /**
      * 設定留言更新時間
      *
-     * @param datetime $updateTime
+     * @param datetime $update_time
      */
     public function setUpdateTime($updateTime)
     {
         $this->updateTime = $updateTime;
+    }
+
+    /**
+     * 設定留言更新時間
+     *
+     * @param datetime $update_time
+     */
+    public function toArray()
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'message' => $this->getMessage(),
+            'update_time' => $this->getUpdateTime()->format('Y-m-d H:i:s'),
+        ];
     }
 }
 

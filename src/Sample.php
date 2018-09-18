@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__."/../config/bootstrap.php";
+require_once __DIR__."/../config/Bootstrap.php";
 
-include('header.php'); // 載入共用的頁首
-include('main.php');
-include('footer.php'); // 載入共用的頁尾
+include('Header.php'); // 載入共用的頁首
+include('Main.php');
+include('Footer.php'); // 載入共用的頁尾
