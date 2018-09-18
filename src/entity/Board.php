@@ -1,7 +1,7 @@
 <?php
-// entities/Board.php
+// entities/Board.php entity(repositoryClass="BoardRepository")
 /**
- *@Entity(repositoryClass="BoardRepository")
+ *@Entity
  *@Table(name="board")
  */
 class Board

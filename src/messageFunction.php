@@ -1,25 +1,26 @@
 <?php
-header("Content-Type:text/html; charset=utf-8");
 
 include __DIR__.'/../config/bootstrap.php'; //置入  db_doctrine
 
-function DeleteMessage($id)
+function DeleteMessage($id,$em)
 {
-    $em = $GLOBALS['em'];
-    $query = $em->createQuery("SELECT b FROM Board b WHERE b.id := '$id'");
-    $query->setParameter('id', $id);
-    $test = $query->getArrayResult();
-    $em->remove($test);
+    $query = $em->createQuery("SELECT b FROM Board b WHERE b.id = :delete_id");
+    $query->setParameter('delete_id', $id);
+    $result = $query->getSingleResult();
+    $em->remove($result);
     $em->flush();
 }
 
-function EditMessage($id)
+function EditMessage($id, $message, $em)
 {
-    $findId = $em->find('Board', $id);
-    $board->setMessage($message);
-    $board->setUpdateTime(new DateTime());
-    $em->flush();
+    $query = $em->createQuery("SELECT b FROM Board b WHERE b.id = :id");
+    $query->setParameter('id', $id);
+    $result = $query->getSingleResult();
+    $result->setMessage($message);
+    $result->setUpdateTime(new DateTime());
+    $board = $em->getRepository('Board')->find($id);
 
+    $em->flush();
 }
 
 

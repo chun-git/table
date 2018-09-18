@@ -2,7 +2,7 @@
 require __DIR__.'/../config/bootstrap.php'; //置入  db_doctrine
 ?>
 
-<div> <h2 class="text-center"> 留言內容 </h2></div>
+<div> <h2 class="text-center"> DB留言版 </h2></div>
 <table border="1">
     <tr><td>Id</td>
         <td>name</td>
@@ -17,8 +17,8 @@ foreach ($row as $i){
     echo "<tr><td>{$i['id']}</td>";
     echo "<td>{$i['name']}</td>";
     echo "<td>{$i['message']}</td>";
-    echo "<td><a href=\"messageEdit.php?editId={$i['id']}\">編輯</a></td>";
-    echo "<td><a href=\"messageDelete.php?deleteId={$i['id']}\">刪除</a></td></tr>";
+    echo "<td><a href=\"messageEdit.php?edit_id={$i['id']}\">編輯</a></td>";
+    echo "<td><a href=\"messageDelete.php?delete_id={$i['id']}\">刪除</a></td></tr>";
 }
 ?>
 </table><br>
